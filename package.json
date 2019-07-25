@@ -1,0 +1,78 @@
+{
+  "name": "camunda-redux",
+  "version": "0.0.1-alpha.0",
+  "description": "A set of actions and reducers for the Camunda BPMN platform",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "cross-env TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' mocha",
+    "coverage": "nyc npm run test",
+    "report": "nyc report --reporter=text-lcov > coverage/lcov.info",
+    "build": "tsc"
+  },
+  "files": [
+    "/dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianschneider94/camunda-redux.git"
+  },
+  "keywords": [
+    "camunda",
+    "process",
+    "management",
+    "bpmn",
+    "cmmn",
+    "dmn",
+    "redux",
+    "react"
+  ],
+  "author": "Adrian Schneider <post@adrian-schneider.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adrianschneider94/camunda-redux/issues"
+  },
+  "homepage": "https://github.com/adrianschneider94/camunda-redux#readme",
+  "dependencies": {
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "redux-optimism": "../redux-optimism",
+    "axios": "^0.19.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3",
+    "flux-standard-action": "^2.1.0",
+    "cross-env": "^5.2.0",
+    "mocha-sinon": "^2.1.0",
+    "nyc": "^14.1.1",
+    "coveralls": "^3.0.5",
+    "source-map-support": "^0.5.12",
+    "@types/redux-mock-store": "^1.0.1",
+    "redux-mock-store": "^1.5.3"
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "include": [
+      "src/*"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "all": true,
+    "sourceMap": true,
+    "instrument": true
+  }
+}

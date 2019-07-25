@@ -5,8 +5,22 @@ import thunk, {ThunkDispatch} from 'redux-thunk'
 import {makeOptimistic} from 'redux-optimism'
 import {createFetch} from "../src/APIHandler"
 import {AnyAction} from "redux"
+import MockAdapter from 'axios-mock-adapter'
+import axios from 'axios'
 
 type DispatchExts = ThunkDispatch<any, void, AnyAction>;
+
+var mock = new MockAdapter(axios)
+mock.onGet('/todos/1',).reply(200, {
+    id: '1',
+    text: 'TEST'
+})
+
+mock.onGet('/todo/1',).reply(404, {
+    id: '1',
+    text: 'TEST'
+})
+
 
 function buildStore(initialState: any = {}) {
     let middlewares = [thunk] // add your middlewares like `redux-thunk`
@@ -22,7 +36,7 @@ describe("Action creators", () => {
         const fetchTodo = createFetch<{ id: string }>({
             resourceName: 'TODO',
             id: args => args.id,
-            url: args => ('https://jsonplaceholder.typicode.com/todos/' + args.id),
+            url: args => ('/todos/' + args.id),
             method: 'GET'
         })
 
@@ -37,7 +51,7 @@ describe("Action creators", () => {
         const fetchTodo = createFetch<{ id: string }>({
             resourceName: 'TODO',
             id: args => args.id,
-            url: args => ('https://jsonplaceholder.typicode.com/todos/' + args.id),
+            url: args => ('/todos/' + args.id),
             method: 'GET'
         })
 
@@ -47,7 +61,7 @@ describe("Action creators", () => {
             type: 'UPDATE_TODO',
             payload: {
                 id: '1',
-                data: {userId: 1, id: 1, title: "delectus aut autem", completed: false}
+                data: {id: '1', text: 'TEST'}
             }
         })
     })
@@ -59,7 +73,7 @@ describe("Action creators", () => {
         const fetchTodo = createFetch<{ id: string }>({
             resourceName: 'TODO',
             id: args => args.id,
-            url: args => ('https://does.not-exist' + args.id),
+            url: args => ('/todo/' + args.id),
             method: 'GET'
         })
 

@@ -1,63 +1,35 @@
 import 'mocha'
 import {expect} from 'chai'
-import configureStore from 'redux-mock-store'
-import thunk, {ThunkDispatch} from 'redux-thunk'
 import {makeOptimistic} from 'redux-optimism'
-import {createFetch} from "../src/APIHandler"
-import {AnyAction} from "redux"
-import MockAdapter from 'axios-mock-adapter'
-import axios from 'axios'
+import {createResource} from "../src/CreateResource"
+import {buildStore} from "./mock"
 
-type DispatchExts = ThunkDispatch<any, void, AnyAction>;
-
-var mock = new MockAdapter(axios)
-mock.onGet('/todos/1',).reply(200, {
-    id: '1',
-    text: 'TEST'
-})
-
-mock.onGet('/todo/1',).reply(404, {
-    id: '1',
-    text: 'TEST'
-})
-
-
-function buildStore(initialState: any = {}) {
-    let middlewares = [thunk] // add your middlewares like `redux-thunk`
-    let mockStore = configureStore<any, DispatchExts>(middlewares)
-    return mockStore(initialState)
+// Shape of a state entry
+type Todo = {
+    id: string,
+    text: string
 }
 
+// Tests
 describe("Action creators", () => {
+
+    // Create our resource
+    let {fetch: fetchTodo} = createResource<Todo, { id: string }>('TODO', {
+        url: args => ('/todos/' + args.id),
+    })
 
     it('Start Fetching action', async () => {
         let store = buildStore()
 
-        const fetchTodo = createFetch<{ id: string }>({
-            resourceName: 'TODO',
-            id: args => args.id,
-            url: args => ('/todos/' + args.id),
-            method: 'GET'
-        })
-
         await store.dispatch(fetchTodo({id: '1'}))
-        let actions = store.getActions()
-        expect(actions[0]).to.deep.equal({type: 'START_FETCHING_TODO', payload: {id: '1'}})
+        expect(store.getActions()[0]).to.deep.equal({type: 'START_FETCHING_TODO', payload: {id: '1'}})
     })
 
     it('Update action', async () => {
         let store = buildStore()
 
-        const fetchTodo = createFetch<{ id: string }>({
-            resourceName: 'TODO',
-            id: args => args.id,
-            url: args => ('/todos/' + args.id),
-            method: 'GET'
-        })
-
         await store.dispatch(fetchTodo({id: '1'}))
-        let actions = store.getActions()
-        expect(actions[1]).to.deep.equal({
+        expect(store.getActions()[1]).to.deep.equal({
             type: 'UPDATE_TODO',
             payload: {
                 id: '1',
@@ -66,25 +38,14 @@ describe("Action creators", () => {
         })
     })
 
-
     it('Failed action', async () => {
         let store = buildStore()
 
-        const fetchTodo = createFetch<{ id: string }>({
-            resourceName: 'TODO',
-            id: args => args.id,
-            url: args => ('/todo/' + args.id),
-            method: 'GET'
-        })
-
-        await store.dispatch(fetchTodo({id: '1'}))
-        let actions = store.getActions()
-        expect(actions[1]).to.include({
+        await store.dispatch(fetchTodo({id: '2'}))
+        expect(store.getActions()[1]).to.include({
             type: 'FETCHING_TODO_FAILED',
             error: true
         })
-        expect(actions[1].payload).to.include({id: "1"})
+        expect(store.getActions()[1].payload).to.include({id: "2"})
     })
-
-
 })

@@ -1,6 +1,6 @@
 {
   "type": "array",
-  "title": "CandidateGroupCount",
+  "entity": "CandidateGroupCount",
   "items": {
     "type": "object",
     "properties": {

@@ -1,8 +1,7 @@
 {
   "$id": "Task.json",
-  "title": "Task",
+  "entity": "Task",
   "type": "object",
-  "entity": true,
   "properties": {
     "id": {
       "type": "string"

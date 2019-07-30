@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "title": "Count",
+  "entity": "Count",
   "properties": {
     "count": {
       "type": "integer"

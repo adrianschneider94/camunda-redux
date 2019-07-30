@@ -1,6 +1,6 @@
 {
   "$id": "Variable.json",
-  "title": "Variable",
+  "entity": "Variable",
   "type": "object",
   "properties": {
     "value": {

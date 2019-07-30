@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "Attachment": {
+      "$ref": "Attachment.json"
+    },
+    "AttachmentList": {
+      "$ref": "AttachmentList.json"
+    },
+    "CandidateGroupCount": {
+      "$ref": "CandidateGroupCount.json"
+    },
+    "Comment": {
+      "$ref": "Comment.json"
+    },
+    "CommentList": {
+      "$ref": "CommentList.json"
+    },
+    "Count": {
+      "$ref": "Count.json"
+    },
+    "FormKey": {
+      "$ref": "FormKey.json"
+    },
+    "IdentityLink": {
+      "$ref": "IdentityLink.json"
+    },
+    "IdentityLinkList": {
+      "$ref": "IdentityLinkList.json"
+    },
+    "Task": {
+      "$ref": "Task.json"
+    },
+    "TaskList": {
+      "$ref": "TaskList.json"
+    },
+    "Variable": {
+      "$ref": "Variable.json"
+    },
+    "VariableMap": {
+      "$ref": "VariableMap.json"
+    }
+  }
+}

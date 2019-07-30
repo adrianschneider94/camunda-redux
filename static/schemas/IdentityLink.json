@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "title": "IdentityLink",
+  "entity": "IdentityLink",
   "properties": {
     "userId": {
       "type": "string"

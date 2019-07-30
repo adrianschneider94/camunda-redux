@@ -1,6 +1,6 @@
 {
   "$id": "VariableMap.json",
-  "title": "VariableMap",
+  "entity": "VariableMap",
   "type": "object",
   "properties": {
   },

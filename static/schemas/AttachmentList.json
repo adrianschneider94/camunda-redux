@@ -1,6 +1,6 @@
 {
   "$id": "AttachmentList.json",
-  "title": "AttachmentList",
+  "entity": "AttachmentList",
   "type": "object",
   "properties": {
     "id": {

@@ -1,6 +1,6 @@
 {
   "$id": "Comment.json",
-  "title": "Comment",
+  "entity": "Comment",
   "type": "object",
   "properties": {
     "id": {

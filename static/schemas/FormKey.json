@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "title": "FormKey",
+  "entity": "FormKey",
   "properties": {
     "key": {
       "type": "string"

@@ -1,6 +1,5 @@
 {
   "$id": "CommentList.json",
-  "title": "CommentList",
   "type": "array",
   "items": {
     "$ref": "#/definitions/Comment"

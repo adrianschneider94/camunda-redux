@@ -1,6 +1,6 @@
 {
   "$id": "IdentityLinkList.json",
-  "title": "IdentityLinkList",
+  "entity": "IdentityLinkList",
   "type": "array",
   "items": {
     "$ref": "#/definitions/IdentityLink"

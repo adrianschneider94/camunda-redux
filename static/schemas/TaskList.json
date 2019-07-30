@@ -1,6 +1,6 @@
 {
   "$id": "TaskList.json",
-  "title": "TaskList",
+  "entity": "TaskList",
   "type": "object",
   "properties": {
     "id": {

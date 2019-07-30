@@ -1,5 +1,5 @@
 {
-  "title": "Attachment",
+  "entity": "Attachment",
   "type": "object",
   "properties": {
     "id": {

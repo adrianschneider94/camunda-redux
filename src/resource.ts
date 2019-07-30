@@ -1,6 +1,44 @@
 import $RefParser from "json-schema-ref-parser"
 import {loadSchemas, normalize} from "json-schema-normalizer"
-import {objectMap} from "redux-optimism/dist/enhancer"
+
+import {
+    Attachment,
+    AttachmentList,
+    CandidateGroupCount,
+    CommentList,
+    Count,
+    FormKey,
+    IdentityLink,
+    IdentityLinkList,
+    Task,
+    TaskList,
+    Variable,
+    VariableMap
+} from "./jsonschemas/types"
+
+
+export async function defineResource<ResourceType>(resourceName: string) {
+    return await $RefParser.parse("src/jsonschemas/" + resourceName + ".json")
+}
+
+export async function loadResources() {
+    let attachment = await defineResource<Attachment>('Attachment')
+    let attachmentList = await defineResource<AttachmentList>('AttachmentList')
+    let candidateGroupCount = await defineResource<CandidateGroupCount>('CandidateGroupCount')
+    let comment = await defineResource<Comment>('Comment')
+    let commentList = await defineResource<CommentList>('CommentList')
+    let count = await defineResource<Count>('Count')
+    let formKey = await defineResource<FormKey>('FormKey')
+    let identityLink = await defineResource<IdentityLink>('IdentityLink')
+    let identityLinkList = await defineResource<IdentityLinkList>('IdentityLinkList')
+    let task = await defineResource<Task>('Task')
+    let taskList = await defineResource<TaskList>('TaskList')
+    let variable = await defineResource<Variable>('Variable')
+    let variableMap = await defineResource<VariableMap>('VariableMap')
+    console.log(attachmentList)
+    loadSchemas([attachment, attachmentList, task, taskList])
+
+}
 
 let response = {
     id: "qttrt",
@@ -194,15 +232,9 @@ let response = {
 }
 
 
-$RefParser.dereference("src/jsonschemas/Task.json", (err, schema1) => {
-    objectMap(schema1!.properties!, ([key, value]: [string, any]) => {
-        try {
-            console.log(key, JSON.stringify(value))
-        } catch (e) {
-            console.log(key, "!!!!")
-        }
-        return [key, value]
-    })
-})
-
-
+loadResources().then(
+    () => {
+        let res = normalize('TaskList', response)
+        //console.log(JSON.stringify(res, null, 4))
+    }
+)

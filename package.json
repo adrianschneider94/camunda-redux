@@ -10,7 +10,8 @@
     "coverage-windows": "nyc npm run test-windows",
     "report": "nyc report --reporter=text-lcov > coverage/lcov.info",
     "build": "tsc",
-    "interactive": "ts-node src/run.ts"
+    "interactive": "ts-node src/run.ts",
+    "build-types": "ts-node src/compileTypes.ts"
   },
   "files": [
     "/dist"
@@ -39,7 +40,8 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "redux-optimism": "../redux-optimism",
-    "axios": "^0.19.0"
+    "axios": "^0.19.0",
+    "json-schema-normalizer": "^1.2.1"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
@@ -57,7 +59,9 @@
     "source-map-support": "^0.5.12",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3",
-    "remote-redux-devtools": "^0.5.0"
+    "remote-redux-devtools": "^0.5.0",
+    "json-schema-ref-parser": "^7.1.0",
+    "json-schema-to-typescript": "^7.0.0"
   },
   "nyc": {
     "extension": [

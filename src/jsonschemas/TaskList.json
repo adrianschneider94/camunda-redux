@@ -1,0 +1,21 @@
+{
+  "$id": "TaskList.json",
+  "title": "TaskList",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Task"
+      }
+    }
+  },
+  "definitions": {
+    "Task": {
+      "$ref": "Task.json"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+function decycle(input: Object) {
+
+}

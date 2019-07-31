@@ -21,9 +21,11 @@ fs.truncate('src/remoteTypes.d.ts', () => null)
 files.forEach(function (file) {
     let match = file.match(/(\/.*)*(.*).json/g)
     if (match != null) {
-        compileFromFile(file, {bannerComment: ""})
-            .then(ts => fs.appendFile('src/remoteTypes.d.ts', ts.replace(/export interface (.+) {/g, "export type $1 = {"), () => null))
+        if (file !== "static/schemas/all.json") {
+            compileFromFile(file, {bannerComment: ""})
+                .then(ts => fs.appendFile('src/remoteTypes.d.ts', ts/**.replace(/export interface (.+) {/g, "export type $1 = {")*/, () => null))
 
+        }
     }
 })
 

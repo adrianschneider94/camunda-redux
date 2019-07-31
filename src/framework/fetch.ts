@@ -2,7 +2,7 @@ import {Dispatch} from "redux"
 import axios, {Method} from "axios"
 
 axios.defaults.baseURL = 'http://docker1.sangl.com:8080/engine-rest/'
-axios.defaults.auth = {username: 'john', password: 'password'}
+axios.defaults.auth = {username: 'demo', password: 'demo'}
 
 function camelCaseToDash(string: string) {
     return string.replace(/([a-z])([A-Z])/g, '$1_$2').toUpperCase()

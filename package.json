@@ -40,8 +40,9 @@
     "redux-thunk": "^2.3.0",
     "redux-optimism": "../redux-optimism",
     "axios": "^0.19.0",
-    "normalizr-json-schema": "../normalizr-json-schema",
-    "normalizr": "^3.4.0"
+    "normalizr-json-schema": "^0.0.1-alpha.0",
+    "normalizr": "^3.4.0",
+    "reduce-reducers": "^1.0.4"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",

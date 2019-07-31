@@ -37,11 +37,8 @@
         "TaskList": {
           "$ref": "task/TaskList.json"
         },
-        "Variable": {
-          "$ref": "task/Variable.json"
-        },
-        "VariableMap": {
-          "$ref": "task/VariableMap.json"
+        "TaskVariables": {
+          "$ref": "task/TaskVariables.json"
         }
       }
     },

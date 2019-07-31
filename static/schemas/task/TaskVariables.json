@@ -1,0 +1,13 @@
+{
+  "$id": "TaskVariables.json",
+  "entity": "TaskVariables",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "variables": {
+      "type": "object"
+    }
+  }
+}

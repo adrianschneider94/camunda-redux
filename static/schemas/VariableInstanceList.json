@@ -1,0 +1,15 @@
+{
+  "entity": "VariableInstanceList",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "variableInstances": {
+      "type": "array",
+      "items": {
+        "$ref": "VariableInstance.json"
+      }
+    }
+  }
+}

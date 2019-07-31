@@ -1,0 +1,72 @@
+{
+  "id": "VariableInstance",
+  "type": "object",
+  "entity": "VariableInstance",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "value": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object"
+      ]
+    },
+    "valueInfo": {
+      "type": "object"
+    },
+    "processInstanceId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "executionId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "caseInstanceId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "caseExecutionId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "taskId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "activityInstanceId": {
+      "type": "string"
+    },
+    "errorMessage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tenantId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

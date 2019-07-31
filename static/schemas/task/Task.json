@@ -116,9 +116,6 @@
         "string",
         "null"
       ]
-    },
-    "test": {
-      "$ref": "Task.json"
     }
   }
 }

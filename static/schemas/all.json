@@ -1,44 +1,66 @@
 {
   "type": "object",
   "properties": {
-    "Attachment": {
-      "$ref": "Attachment.json"
+    "task": {
+      "type": "object",
+      "properties": {
+        "Attachment": {
+          "$ref": "task/Attachment.json"
+        },
+        "AttachmentList": {
+          "$ref": "task/AttachmentList.json"
+        },
+        "CandidateGroupCount": {
+          "$ref": "task/CandidateGroupCount.json"
+        },
+        "Comment": {
+          "$ref": "task/Comment.json"
+        },
+        "CommentList": {
+          "$ref": "task/CommentList.json"
+        },
+        "Count": {
+          "$ref": "task/Count.json"
+        },
+        "FormKey": {
+          "$ref": "task/FormKey.json"
+        },
+        "IdentityLink": {
+          "$ref": "task/IdentityLink.json"
+        },
+        "IdentityLinkList": {
+          "$ref": "task/IdentityLinkList.json"
+        },
+        "Task": {
+          "$ref": "task/Task.json"
+        },
+        "TaskList": {
+          "$ref": "task/TaskList.json"
+        },
+        "Variable": {
+          "$ref": "task/Variable.json"
+        },
+        "VariableMap": {
+          "$ref": "task/VariableMap.json"
+        }
+      }
     },
-    "AttachmentList": {
-      "$ref": "AttachmentList.json"
+    "process-definition": {
+      "type": "object",
+      "properties": {
+        "ProcessDefinition": {
+          "$ref": "process-definition/ProcessDefinition.json"
+        },
+        "ProcessDefinitionXML": {
+          "$ref": "process-definition/ProcessDefinitionXML.json"
+        }
+      }
     },
-    "CandidateGroupCount": {
-      "$ref": "CandidateGroupCount.json"
+    "VariableInstance": {
+      "$ref": "VariableInstance.json"
     },
-    "Comment": {
-      "$ref": "Comment.json"
-    },
-    "CommentList": {
-      "$ref": "CommentList.json"
-    },
-    "Count": {
-      "$ref": "Count.json"
-    },
-    "FormKey": {
-      "$ref": "FormKey.json"
-    },
-    "IdentityLink": {
-      "$ref": "IdentityLink.json"
-    },
-    "IdentityLinkList": {
-      "$ref": "IdentityLinkList.json"
-    },
-    "Task": {
-      "$ref": "Task.json"
-    },
-    "TaskList": {
-      "$ref": "TaskList.json"
-    },
-    "Variable": {
-      "$ref": "Variable.json"
-    },
-    "VariableMap": {
-      "$ref": "VariableMap.json"
+    "VariableInstanceList": {
+      "$ref": "VariableInstanceList.json"
     }
   }
 }

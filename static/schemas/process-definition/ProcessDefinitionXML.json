@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "entity": "ProcessDefinitionXML",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "bpmn20Xml": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "bpmn20Xml"
+  ]
+}

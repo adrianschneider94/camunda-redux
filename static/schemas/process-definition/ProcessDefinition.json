@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "entity": "ProcessDefinition",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "category": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "version": {
+      "type": "integer"
+    },
+    "resource": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "deploymentId": {
+      "type": "string"
+    },
+    "diagram": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "suspended": {
+      "type": "boolean"
+    },
+    "tenantId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "versionTag": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "historyTimeToLive": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "key",
+    "category",
+    "description",
+    "name",
+    "version",
+    "resource",
+    "deploymentId",
+    "diagram",
+    "suspended",
+    "tenantId",
+    "versionTag",
+    "historyTimeToLive"
+  ]
+}

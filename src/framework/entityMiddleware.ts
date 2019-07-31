@@ -1,14 +1,15 @@
 import {Middleware} from "redux"
 import $RefParser from "json-schema-ref-parser"
-import {objectMap, parse} from "normalizr-json-schema/dist"
+import {objectMap, parse, store as entityStore} from "normalizr-json-schema"
 import {FSA} from "flux-standard-action"
 import {normalize} from "normalizr"
-import {store as entityStore} from 'normalizr-json-schema'
 
 
 export function CreateEntityMiddleware(schemas: Array<string>): Middleware {
-    let loadingFinished = Promise.all(schemas.map((schema: string) => $RefParser.dereference(schema))).then((schemas) => (schemas.map((schema) => parse(schema))))
-
+    let loadingFinished = Promise.all(schemas.map((schema: string) => $RefParser.dereference(schema))).then((schemas) => {
+        // console.log(JSON.stringify(schemas, null, 4))
+        schemas.map((schema) => parse(schema))
+    })
     return store => next => action => {
         if (action.meta && action.meta.entity) {
             loadingFinished.then((result) => {
